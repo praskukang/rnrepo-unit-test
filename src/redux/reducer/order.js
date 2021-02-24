@@ -1,12 +1,12 @@
 const initStateOrder = {
-    quantity : 0
+    name : 0
 };
 
 export const orderReducer = (state = initStateOrder, action) => {
-    if ( action.type === 'SET_TAMBAH') {
+    if ( action.type === 'SET_ORDER') {
         return {
             ...state,
-            quantity : action.value.quantity
+            name : state.name
         }
     }
     return state;

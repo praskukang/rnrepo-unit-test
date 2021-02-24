@@ -1,12 +1,12 @@
 const initStateCart = {
-    quantity : 0
+    totalOrder : 0
 };
 
 export const cartReducer = (state = initStateCart, action) => {
     if ( action.type === 'SET_TAMBAH') {
         return {
             ...state,
-            quantity : action.value.quantity
+            totalOrder : state.totalOrder + 1
         }
     }
     return state;
