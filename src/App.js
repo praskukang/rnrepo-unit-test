@@ -1,30 +1,33 @@
 import React, {useEffect} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import { Text, View, ScrollView } from 'react-native';
+import { Text, View, ScrollView, SafeAreaView } from 'react-native';
 import Firestore from './Firestore'
 import Read from './Read';
 import Select  from './Select'
 import ClassFirestore from './ClassFirestore';
 import Orders from './Order';
-// import Router from './router';
+import ShopCart from './ShopCart';
 
 import { Provider } from 'react-redux'
-import store from './redux/store'
+import storeRN from './redux/store'
 
 
 const App = () => {
   return (
 
  
-    // <Provider store={store}>
-      <View>
+    <Provider store={storeRN}>
+      <SafeAreaView>
         {/* <Firestore/> */}
         {/* <Read/> */}
         {/* <Select/> */}
-        <Orders/>
+        <ShopCart/>
+        {/* <Orders/> */}
         <ClassFirestore/>
-      </View>
-    // </Provider>
+
+      </SafeAreaView>
+     
+    </Provider>
 
 
   );

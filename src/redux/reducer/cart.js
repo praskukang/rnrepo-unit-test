@@ -2,7 +2,7 @@ const initStateCart = {
     totalOrder : 0
 };
 
-export const cartReducer = (state = initStateCart, action) => {
+const cartReducer = (state = initStateCart, action) => {
     if ( action.type === 'SET_TAMBAH') {
         return {
             ...state,
@@ -11,3 +11,5 @@ export const cartReducer = (state = initStateCart, action) => {
     }
     return state;
 }
+
+export default cartReducer

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { FlatList, Text, View, StyleSheet, TouchableOpacity } from 'react-native'
 import firestore from '@react-native-firebase/firestore';
-
+import { connect } from 'react-redux';
+ 
 export class ClassFirestore extends Component {
     
     constructor(props){
@@ -83,7 +84,7 @@ export class ClassFirestore extends Component {
                         <Text>{item.id}</Text>
                         <Text>{item.name}</Text>
                         <Text>{item.price}</Text>
-                        <TouchableOpacity style={styles.text} onPress={() => this.sendData(item.name)}>
+                        <TouchableOpacity style={styles.text}  onPress={this.props.handleTambah} >
                             <Text>Pesan</Text>
                         </TouchableOpacity>
                     </View>
@@ -96,7 +97,22 @@ export class ClassFirestore extends Component {
     }
 }
 
-export default ClassFirestore
+
+
+const mapStateToProps = (state) => {
+    return {
+        order: state.totalOrder
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        handleTambah : () => dispatch({type: 'SET_TAMBAH'})
+    }
+    
+}
+
+export default connect (mapStateToProps, mapDispatchToProps)(ClassFirestore)
 
 const styles = StyleSheet.create({
     text: {
